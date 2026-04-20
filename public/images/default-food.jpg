@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+  <rect width="400" height="300" fill="#f5ede0"/>
+  <circle cx="200" cy="140" r="70" fill="#e8d5b7"/>
+  <circle cx="200" cy="140" r="55" fill="#d4b896"/>
+  <text x="200" y="148" font-family="serif" font-size="42" text-anchor="middle" fill="#b8956a">🍽</text>
+  <text x="200" y="220" font-family="Georgia,serif" font-size="16" text-anchor="middle" fill="#a08060">Yummy UK</text>
+</svg>

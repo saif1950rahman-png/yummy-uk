@@ -1,0 +1,6 @@
+node_modules/
+yummy.db
+*.db-shm
+*.db-wal
+public/images/[0-9]*-*
+.env
