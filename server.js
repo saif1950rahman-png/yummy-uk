@@ -1,7 +1,17 @@
 'use strict';
 
-const express        = require('express');
-const session        = require('express-session');
+const session = require("express-session");
+const MongoStore = require("connect-mongo");
+
+app.use(session({
+    secret: process.env.SESSION_SECRET || 'yummy-uk-secret-2024',
+    resave: false,
+    saveUninitialized: false,
+    store: MongoStore.create({
+        mongoUrl: process.env.MONGO_URL
+    }),
+    cookie: { maxAge: 3_600_000 }
+}));
 const bcrypt         = require('bcryptjs');
 const path           = require('path');
 const fs             = require('fs');
