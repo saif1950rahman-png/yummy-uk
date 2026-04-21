@@ -1,7 +1,7 @@
 'use strict';
 
-const session = require("express-session");
-const MongoStore = require("connect-mongo");
+const express        = require('express');
+const session        = require('express-session');
 const bcrypt         = require('bcryptjs');
 const path           = require('path');
 const fs             = require('fs');
