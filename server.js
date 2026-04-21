@@ -2,16 +2,6 @@
 
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
-
-app.use(session({
-    secret: process.env.SESSION_SECRET || 'yummy-uk-secret-2024',
-    resave: false,
-    saveUninitialized: false,
-    store: MongoStore.create({
-        mongoUrl: process.env.MONGO_URL
-    }),
-    cookie: { maxAge: 3_600_000 }
-}));
 const bcrypt         = require('bcryptjs');
 const path           = require('path');
 const fs             = require('fs');
@@ -134,12 +124,20 @@ async function boot () {
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
   app.use(express.static(path.join(__dirname, 'public')));
-  app.use(session({
-    secret: process.env.SESSION_SECRET || 'yummy-uk-secret-2024',
-    resave: false,
-    saveUninitialized: false,
-    cookie: { maxAge: 3_600_000 }
-  }));
+ const session = require("express-session");
+const MongoStore = require("connect-mongo");
+
+app.use(session({
+  secret: "your_secret_key",
+  resave: false,
+  saveUninitialized: false,
+  store: MongoStore.create({
+    mongoUrl: process.env.MONGO_URL
+  }),
+  cookie: {
+    maxAge: 1000 * 60 * 60 // 1 hour
+  }
+}));
 
   const storage = multer.diskStorage({
     destination: (_req, _file, cb) => cb(null, path.join(__dirname, 'public/images')),
