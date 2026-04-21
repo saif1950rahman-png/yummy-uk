@@ -124,13 +124,7 @@ async function boot () {
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
   app.use(express.static(path.join(__dirname, 'public')));
- const session = require("express-session");
-const MongoStore = require("connect-mongo");
-
-const session = require("express-session");
-const MongoStore = require("connect-mongo");
-
-app.use(session({
+  app.use(session({
     secret: process.env.SESSION_SECRET || 'yummy-uk-secret-2024',
     resave: false,
     saveUninitialized: false,
